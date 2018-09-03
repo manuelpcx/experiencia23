@@ -5,15 +5,20 @@
     <title></title>
   </head>
   <body>
-    <h1> ¡¡¡ La bomba !!! </h1>
+    <h1 id="titulo"> ¡¡¡ La bomba !!! </h1>
     <h2 id="timer">15</h2>
     <script>
+        var tit = document.getElementById('titulo')
         var timer_tag = document.getElementById('timer');
         var timer = timer_tag.innerHTML;
         timer = parseInt(timer);
-        setInterval(function(){
+        var interval = setInterval(function(){
           timer = timer - 1
           timer_tag.innerHTML = timer
+          if (timer === 0){
+            tit.innerHTML = "BOOOOOOOOOOOOM!!!"
+            clearInterval(interval)
+          }
         }, 1000);
     </script>
   </body>
